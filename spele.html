@@ -1,0 +1,30 @@
+<html>
+<body>
+<canvas id="myCanvas" width=300 height=300 style="border:1px solid"> </canvas> 
+<script>
+
+ var ctx = myCanvas.getContext("2d");
+
+ var bug_x = 0;
+ var bug_y = 0;
+ var BugImg = new Image();
+ BugImg.src = "https://s2js.com/img/etc/ladybug.png";
+
+ function Do_a_Frame () {
+    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    ctx.drawImage(BugImg, bug_x, bug_y);
+    }
+
+ setInterval(Do_a_Frame, 25);
+
+ function MyKeyDownHandler (MyEvent) { 
+  if (MyEvent.keyCode == 37 && bug_x > 0) {bug_x = bug_x - 10;}   // left
+  if (MyEvent.keyCode == 39 && bug_x + BugImg.width < myCanvas.width) {bug_x = bug_x + 10;}   // right
+  }
+
+addEventListener("keydown", MyKeyDownHandler); 
+
+
+</script>
+</body>
+</html> 
