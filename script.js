@@ -1,7 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
-const box = 20; // size of the snake and food
+const box = 20; 
 const canvasSize = 600;
 
 canvas.width = canvasSize;
@@ -19,15 +19,15 @@ let score = 0;
 let highestScore = localStorage.getItem('highestScore') ? localStorage.getItem('highestScore') : 0;
 let d;
 
-// Get retry button
+
 const retryButton = document.getElementById("retryButton");
 
-// Add event listener to retry button
+
 retryButton.addEventListener("click", () => {
     location.reload();
 });
 
-// Control the snake
+
 document.addEventListener("keydown", direction);
 
 function direction(event) {
@@ -43,7 +43,7 @@ function direction(event) {
     }
 }
 
-// Check collision function
+
 function collision(head, array) {
     for (let i = 0; i < array.length; i++) {
         if (head.x == array[i].x && head.y == array[i].y) {
@@ -53,7 +53,7 @@ function collision(head, array) {
     return false;
 }
 
-// Draw everything to the canvas
+
 function draw() {
     ctx.clearRect(0, 0, canvasSize, canvasSize);
 
